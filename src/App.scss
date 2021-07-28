@@ -1,0 +1,86 @@
+.lightgray-bg {
+  background-color: #EAEDED;
+  min-height: 76vh;
+}
+
+.am-button {
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0 1.5rem;
+  background: #eff0f3;
+  background: -webkit-linear-gradient(top,#f7f8fa,#e7e9ec);
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  height: 2rem;
+  margin-top: 10px;
+}
+
+.am-button:hover {
+  border-color: #a2a6ac #979aa1 #82858a;
+  background: #e0e3e8;
+  background: -webkit-linear-gradient(top,#e7eaf0,#d9dce1);
+  background: linear-gradient(to bottom,#e7eaf0,#d9dce1);
+}
+
+.am-button:disabled {
+  background: #eff0f3;
+  background: -webkit-linear-gradient(top,#f7f8fa,#e7e9ec);
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+}
+
+.am-yellow-button {
+  box-sizing: border-box;
+  background-color: #FFD814;
+  border: 1px solid #FCD200;
+  margin-top: 10px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+}
+
+.am-yellow-button:hover {
+  background: #F7CA00;
+  border-color: #F2C200;
+}
+
+.am-yellow-button:disabled {
+  background: #F7CA00;
+  cursor: auto;
+}
+
+.am-orange-button {
+  box-sizing: border-box;
+  height: 2rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  margin-top: 10px;
+  background: #f3d078;
+  background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+}
+
+.am-orange-button:hover {
+  background: #f1c860;
+  background: -webkit-linear-gradient(top,#f5d78e,#eeb933);
+  background: linear-gradient(to bottom,#f5d78e,#eeb933);
+  border-color: #a88734 #9c7e31 #846a29;
+}
+
+.am-orange-button:disabled {
+  background: #f3d078;
+  background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+}
+
+.app {
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

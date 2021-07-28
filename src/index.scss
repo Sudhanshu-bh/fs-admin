@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* css for correcting the mess created by bootstrap */
+  line-height: 1;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+button, input, optgroup, select, textarea {
+  font-size: 0.85rem;
 }
