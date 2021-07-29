@@ -1,39 +1,16 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { auth } from '../firebase'
-import { useStateValue } from '../StateProvider'
-import Toast from './reusable/Toast'
+import React from 'react'
+import './Home.scss'
+import Header from './reusable/Header'
 
 function Home() {
-
-  const history = useHistory()
-  const [{ user }] = useStateValue()
-  const [toast, settoast] = useState({ text: "", type: "success" })
-
-  const signOut = () => {
-    if (user) {
-      auth.signOut()
-        .then(() => history.push('/login'))
-        .catch(error => {
-          settoast({ text: "Something went wrong. Please try again!", type: "danger" })
-          console.log(error)
-        })
-    }
-  }
-
   return (
     <>
-      <div className="home">
-        <h2>This is homeppage.</h2>
+      <Header heading="Admin Panel" Home />
+      <div className="home" id="main-content">
 
-        {auth.currentUser?.displayName}
+        Hello
 
-        {auth.currentUser !== null &&
-          (<button onClick={signOut} className="am-button">Sign Out</button>)
-        }
       </div>
-
-      <Toast toast={toast} settoast={settoast} />
 
     </>
   )

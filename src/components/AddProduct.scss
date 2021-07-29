@@ -1,0 +1,29 @@
+.addProduct {
+  form {
+    padding: 2rem;
+    padding-top: 3rem;
+
+    div {
+      margin-bottom: 1rem;
+
+      label {
+        width: 20%;
+        text-align: right;
+      }
+
+      input {
+        width: 50%;
+        margin-left: 1rem;
+        padding: 8px;
+        border: 1px solid rgb(143, 143, 143);
+        border-radius: 3px;
+      }
+    }
+
+    button {
+      position: relative;
+      left: 40%;
+      margin-top: 2rem;
+    }
+  }
+}

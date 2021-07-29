@@ -5,7 +5,7 @@ import { auth } from '../firebase'
 import LoaderButton from './reusable/LoaderButton'
 import Toast from './reusable/Toast'
 
-function Login() {
+function Login({ location }) {
 
   const history = useHistory()
   const [email, setemail] = useState("")

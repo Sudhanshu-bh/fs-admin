@@ -6,41 +6,62 @@ import Login from './components/Login';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 import { SET_USER } from './actionsList';
+import Loading from './components/reusable/Loading';
+import AddProduct from './components/AddProduct';
+import DeleteProducts from './components/DeleteProducts';
 
 function App() {
 
+  // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue()
-  const [toast, settoast] = useState({})
+  const [UserLoginStatus, setUserLoginStatus] = useState(-1)
 
   useEffect(() => {
-    auth.onAuthStateChanged(authUser => {
 
+    setUserLoginStatus(-1)
+
+    auth.onAuthStateChanged(authUser => {
       if (authUser) {
+        setUserLoginStatus(1)
         dispatch({
           type: SET_USER,
           user: authUser
         })
       } else {
+        setUserLoginStatus(0)
         dispatch({
           type: SET_USER,
           user: null
         })
       }
     })
-    // eslint-disable-next-line
-  }, [])
+  }, [dispatch])
 
   return (
     <BrowserRouter>
       <div className="app">
 
         <Switch>
-          <Route path="/login">
+          <Route exact path="/addproduct">
+            {UserLoginStatus === -1 && <Loading />}
+            {UserLoginStatus === 1 && <AddProduct />}
+            {UserLoginStatus === 0 && <Login />}
+          </Route>
+
+          <Route exact path="/deleteproducts">
+            {UserLoginStatus === -1 && <Loading />}
+            {UserLoginStatus === 1 && <DeleteProducts />}
+            {UserLoginStatus === 0 && <Login />}
+          </Route>
+
+          <Route exact path="/login">
             <Login />
           </Route>
 
-          <Route path="/">
-            <Home />
+          <Route exact path="/">
+            {UserLoginStatus === -1 && <Loading />}
+            {UserLoginStatus === 1 && <Home />}
+            {UserLoginStatus === 0 && <Login />}
           </Route>
         </Switch>
 
