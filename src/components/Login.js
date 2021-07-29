@@ -40,19 +40,15 @@ function Login() {
         auth.currentUser.getIdTokenResult()
           .then((idTokenResult) => {
             if (idTokenResult.claims.admin) {
-              console.log("Admin Logged in!!")
-              // history.push('/')
+              history.push('/')
             } else {
-              console.log("Non-admin login attempted. Signing out!!")
               settoast({ text: "You are not an admin!", type: "danger" })
               auth.signOut()
                 .then(() => {
-                  console.log("Signed Out successfully!")
                   setIsLoading(false)
                 })
             }
           })
-
       })
       .catch(error => {
         setIsLoading(false)
@@ -117,7 +113,6 @@ function Login() {
                 isLoading={isLoading} className="am-orange-button login__signInButton">
                 Sign In
               </LoaderButton>
-
 
             </form>
 
