@@ -25,8 +25,8 @@ function ViewProducts() {
       <Header ViewProducts />
 
       <div className="viewProducts" id="main-content">
-        {products?.map((product) => (
-          <Product product={product} />
+        {products?.map((product, i) => (
+          <Product product={product} key={i} />
         ))}
       </div>
     </>

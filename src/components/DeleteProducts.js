@@ -25,8 +25,8 @@ function DeleteProducts() {
       <Header DeleteProducts />
 
       <div className="deleteProducts" id="main-content">
-        {products?.map((product) => (
-          <Product product={product} deleteButton />
+        {products?.map((product, i) => (
+          <Product product={product} deleteButton key={i} />
         ))}
       </div>
     </>

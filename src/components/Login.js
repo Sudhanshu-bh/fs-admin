@@ -5,7 +5,7 @@ import { auth } from '../firebase'
 import LoaderButton from './reusable/LoaderButton'
 import Toast from './reusable/Toast'
 
-function Login({ location }) {
+function Login() {
 
   const history = useHistory()
   const [email, setemail] = useState("")
@@ -15,7 +15,7 @@ function Login({ location }) {
 
   const [invalidEmail, setinvalidEmail] = useState("")
   const [invalidPassword, setinvalidPassword] = useState("")
-  const [toast, settoast] = useState({ text: "", type: "success" })  // type can be success, danger, or anything else.
+  const [toast, settoast] = useState({})
 
   const updateEmail = e => {
     setemail(e.target.value)
@@ -30,23 +30,23 @@ function Login({ location }) {
   const signIn = e => {
     e.preventDefault()
     setIsLoading(true)
-    console.log("Sign In clicked with username: ", email, " and password: ", password)
 
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
 
-        console.log("Login success!!")
         auth.currentUser.getIdTokenResult()
-          .then((idTokenResult) => {
+          .then(idTokenResult => {
             if (idTokenResult.claims.admin) {
               history.push('/')
             } else {
-              settoast({ text: "You are not an admin!", type: "danger" })
               auth.signOut()
                 .then(() => {
                   setIsLoading(false)
+                  settoast({ text: "You are not an admin!", type: "danger" })
                 })
+              if (window.location.pathname !== '/login')
+                alert("You are not an admin!")
             }
           })
       })
