@@ -3,7 +3,7 @@
     padding: 2rem;
     padding-top: 3rem;
 
-    div {
+    &>div {
       margin-bottom: 1rem;
 
       label {
@@ -24,6 +24,7 @@
       position: relative;
       left: 40%;
       margin-top: 2rem;
+      width: 8rem;
     }
   }
 }

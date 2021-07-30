@@ -9,6 +9,7 @@ import { SET_USER } from './actionsList';
 import Loading from './components/reusable/Loading';
 import AddProduct from './components/AddProduct';
 import DeleteProducts from './components/DeleteProducts';
+import ViewProducts from './components/ViewProducts';
 
 function App() {
 
@@ -45,6 +46,12 @@ function App() {
           <Route exact path="/addproduct">
             {UserLoginStatus === -1 && <Loading />}
             {UserLoginStatus === 1 && <AddProduct />}
+            {UserLoginStatus === 0 && <Login />}
+          </Route>
+
+          <Route exact path="/viewproducts">
+            {UserLoginStatus === -1 && <Loading />}
+            {UserLoginStatus === 1 && <ViewProducts />}
             {UserLoginStatus === 0 && <Login />}
           </Route>
 

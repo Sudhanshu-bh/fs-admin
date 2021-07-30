@@ -1,0 +1,67 @@
+@mixin flexc($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+}
+
+@mixin flexcc($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+.product {
+  @include flexc();
+  margin-bottom: 1rem;
+
+  .productDetails {
+    @include flexc();
+    flex: 1;
+    background: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+
+    .imageContainer {
+      @include flexcc();
+      height: 2.6rem;
+      width: 2.6rem;
+
+      img {
+        height: inherit;
+        object-fit: contain;
+        border-radius: 5px;
+      }
+    }
+
+    .title {
+      margin: 0 1rem;
+      flex: 1;
+    }
+
+    .right {
+      @include flexc();
+      margin-left: 1rem;
+
+      &>* {
+        margin-left: 1rem;
+      }
+
+      .mrp {
+        text-decoration: line-through;
+      }
+
+      .mrp, .sellprice {
+        width: 4.5rem;
+      }
+    }
+  }
+  
+  .am-button {
+    @include flexcc();
+    margin: 0 0 0 1.5rem;
+    height: 2.5rem;
+    width: 6rem;
+    border-radius: 5px;
+  }
+}

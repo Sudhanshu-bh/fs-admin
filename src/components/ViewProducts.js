@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { db } from '../firebase'
-import './DeleteProducts.scss'
 import Header from './reusable/Header'
 import Product from './reusable/Product'
+import './ViewProducts.scss'
 
-function DeleteProducts() {
+function ViewProducts() {
 
   const [products, setproducts] = useState([])
 
@@ -22,15 +22,15 @@ function DeleteProducts() {
 
   return (
     <>
-      <Header DeleteProducts />
+      <Header ViewProducts />
 
-      <div className="deleteProducts" id="main-content">
+      <div className="viewProducts" id="main-content">
         {products?.map((product) => (
-          <Product product={product} deleteButton />
+          <Product product={product} />
         ))}
       </div>
     </>
   )
 }
 
-export default DeleteProducts
+export default ViewProducts

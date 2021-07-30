@@ -5,7 +5,7 @@ import { auth } from '../../firebase'
 import { useStateValue } from '../../StateProvider'
 import Toast from './Toast'
 
-function Header({ heading = "Admin Panel", ...props }) {
+function Header(props) {
 
   const history = useHistory()
   const [{ user }] = useStateValue()
@@ -44,9 +44,9 @@ function Header({ heading = "Admin Panel", ...props }) {
           <img className="logo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" />
 
           <div className="header__right">
-            Hi, {auth.currentUser?.displayName}
+            Hi, {auth.currentUser?.displayName.split(" ")[0]}
 
-            <div onClick={signOut} className="logout">
+            <div onClick={signOut} className="logout" data-bs-toggle="tooltip" data-bs-placement="left" title="Sign Out">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-power" viewBox="0 0 16 16">
                 <path d="M7.5 1v7h1V1h-1z" />
                 <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
@@ -55,14 +55,14 @@ function Header({ heading = "Admin Panel", ...props }) {
           </div>
         </div>
         <div className="lower">
-          <h1 className="heading">{heading}</h1>
+          <h1 className="heading">Admin Panel</h1>
         </div>
       </div>
 
       <div className="sidebar" id="sidebar">
         <Link to="/" className={`dashboard ${props.Home}`}>Dashboard</Link>
         <Link to="/addproduct" className={`addProduct ${props.AddProduct}`}>Add Product</Link>
-        <Link className={`viewProducts ${props.ViewProducts}`}>View Products</Link>
+        <Link to="/viewproducts" className={`viewProducts ${props.ViewProducts}`}>View Products</Link>
         <Link to="/deleteproducts" className={`deleteProducts ${props.DeleteProducts}`}>Delete Products</Link>
       </div>
 
