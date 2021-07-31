@@ -10,6 +10,7 @@ import Loading from './components/reusable/Loading';
 import AddProduct from './components/AddProduct';
 import DeleteProducts from './components/DeleteProducts';
 import ViewProducts from './components/ViewProducts';
+import PageNotFound from './Page404'
 
 function App() {
 
@@ -43,19 +44,19 @@ function App() {
       <div className="app">
 
         <Switch>
-          <Route exact path="/addproduct">
+          <Route exact path="/products/add">
             {UserLoginStatus === -1 && <Loading />}
             {UserLoginStatus === 1 && <AddProduct />}
             {UserLoginStatus === 0 && <Login />}
           </Route>
 
-          <Route exact path="/viewproducts">
+          <Route exact path="/products/view">
             {UserLoginStatus === -1 && <Loading />}
             {UserLoginStatus === 1 && <ViewProducts />}
             {UserLoginStatus === 0 && <Login />}
           </Route>
 
-          <Route exact path="/deleteproducts">
+          <Route exact path="/products/delete">
             {UserLoginStatus === -1 && <Loading />}
             {UserLoginStatus === 1 && <DeleteProducts />}
             {UserLoginStatus === 0 && <Login />}
@@ -70,6 +71,9 @@ function App() {
             {UserLoginStatus === 1 && <Home />}
             {UserLoginStatus === 0 && <Login />}
           </Route>
+
+          <Route component={PageNotFound} />
+
         </Switch>
 
       </div>

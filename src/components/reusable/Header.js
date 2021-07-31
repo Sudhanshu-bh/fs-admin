@@ -61,9 +61,9 @@ function Header(props) {
 
       <div className="sidebar" id="sidebar">
         <Link to="/" className={`dashboard ${props.Home}`}>Dashboard</Link>
-        <Link to="/addproduct" className={`addProduct ${props.AddProduct}`}>Add Product</Link>
-        <Link to="/viewproducts" className={`viewProducts ${props.ViewProducts}`}>View Products</Link>
-        <Link to="/deleteproducts" className={`deleteProducts ${props.DeleteProducts}`}>Delete Products</Link>
+        <Link to="/products/add" className={`addProduct ${props.AddProduct}`}>Add Product</Link>
+        <Link to="/products/view" className={`viewProducts ${props.ViewProducts}`}>View Products</Link>
+        <Link to="/products/delete" className={`deleteProducts ${props.DeleteProducts}`}>Delete Products</Link>
       </div>
 
       <Toast toast={toast} settoast={settoast} />
