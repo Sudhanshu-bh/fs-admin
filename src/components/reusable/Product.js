@@ -2,14 +2,32 @@ import React, { useState } from 'react'
 import { db } from '../../firebase'
 import LoaderButton from './LoaderButton'
 import './Product.scss'
+import ProductEditBox from './ProductEditBox'
 import Toast from './Toast'
 
-function Product({ product, deleteButton }) {
+function Product({ product, editButton, deleteButton }) {
 
   const { id } = product
   const { title, mrp, sellprice, imageUrl } = product.data
   const [toast, settoast] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+
+  const [visibility, setvisibility] = useState("hidden")
+
+  const handleEdit = e => {
+    if (visibility === "hidden") {
+      setvisibility("visible")
+
+      setTimeout(() => {
+        const editProducts = document.getElementById("main-content")
+        editProducts.scrollTo({
+          top: document.getElementById(`scrollTarget${id}`).offsetTop - 15,
+          behavior: 'smooth'
+        })
+      }, 1);
+    } else
+      setvisibility("hidden");
+  }
 
   const handleDelete = e => {
     setIsLoading(true)
@@ -32,7 +50,7 @@ function Product({ product, deleteButton }) {
   return (
     <>
 
-      <div className="product">
+      <div className="product" id={`scrollTarget${id}`}>
         <div className="productDetails">
           <div className="imageContainer">
             <img src={imageUrl} alt="product" />
@@ -46,12 +64,24 @@ function Product({ product, deleteButton }) {
           </div>
         </div>
 
+        {editButton &&
+          <LoaderButton onClick={handleEdit}
+            isLoading={isLoading} className="am-button">
+            Edit
+          </LoaderButton>
+        }
+
         {deleteButton &&
           <LoaderButton onClick={handleDelete}
             isLoading={isLoading} className="am-button">
             Delete
           </LoaderButton>
         }
+
+      </div>
+
+      <div className={`editContainer ${visibility}`}>
+        <ProductEditBox product={product} setvisibility={setvisibility} settoast={settoast} />
       </div>
 
       <Toast toast={toast} settoast={settoast} />

@@ -11,6 +11,7 @@ import AddProduct from './components/AddProduct';
 import DeleteProducts from './components/DeleteProducts';
 import ViewProducts from './components/ViewProducts';
 import PageNotFound from './Page404'
+import EditProducts from './components/EditProducts';
 
 function App() {
 
@@ -53,6 +54,12 @@ function App() {
           <Route exact path="/products/view">
             {UserLoginStatus === -1 && <Loading />}
             {UserLoginStatus === 1 && <ViewProducts />}
+            {UserLoginStatus === 0 && <Login />}
+          </Route>
+
+          <Route exact path="/products/edit">
+            {UserLoginStatus === -1 && <Loading />}
+            {UserLoginStatus === 1 && <EditProducts />}
             {UserLoginStatus === 0 && <Login />}
           </Route>
 

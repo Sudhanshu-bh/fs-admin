@@ -63,6 +63,7 @@ function Header(props) {
         <Link to="/" className={`dashboard ${props.Home}`}>Dashboard</Link>
         <Link to="/products/add" className={`addProduct ${props.AddProduct}`}>Add Product</Link>
         <Link to="/products/view" className={`viewProducts ${props.ViewProducts}`}>View Products</Link>
+        <Link to="/products/edit" className={`viewProducts ${props.EditProducts}`}>Edit Products</Link>
         <Link to="/products/delete" className={`deleteProducts ${props.DeleteProducts}`}>Delete Products</Link>
       </div>
 

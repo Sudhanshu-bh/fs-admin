@@ -11,24 +11,30 @@
   justify-content: center;
 }
 
+.product:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
 .product {
   @include flexc();
-  margin-bottom: 1rem;
 
   .productDetails {
     @include flexc();
     flex: 1;
+    padding: 1.2rem;
     background: white;
     border: 1px solid rgb(219, 219, 219);
     border-radius: 5px;
 
     .imageContainer {
       @include flexcc();
-      height: 2.6rem;
-      width: 2.6rem;
+      height: 4rem;
+      width: 4rem;
+      overflow: hidden;
 
       img {
         height: inherit;
+        width: inherit;
         object-fit: contain;
         border-radius: 5px;
       }
@@ -49,6 +55,7 @@
 
       .mrp {
         text-decoration: line-through;
+        color: gray;
       }
 
       .mrp, .sellprice {
@@ -64,4 +71,22 @@
     width: 6rem;
     border-radius: 5px;
   }
+}
+
+.editContainer {
+  
+  background: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+}
+
+.editContainer.hidden {
+  display: none;
+}
+
+.editContainer.visible {
+  display: flex;
+  align-items: center;
 }
